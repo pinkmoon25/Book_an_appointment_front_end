@@ -1,13 +1,11 @@
+/* eslint-disable no-undef */
 import { NavLink } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-// import { removeUser } from '../redux/user/user';
-// import { deleteUserApi } from '../redux/user/userAPI';
+import { useSelector } from 'react-redux';
 import logo from '../codes_expert.png';
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
-  const dispatch = useDispatch();
   const activeLink = ({ isActive }) => `nav-link${(isActive ? ' activated' : '')}`;
   const [navbarOpen, setNavbarOpen] = useState(false);
   const handleToggle = () => {
@@ -21,21 +19,11 @@ const Navbar = () => {
     setNavbarOpen(true);
   };
 
-  const signOut = () => {
-    dispatch(removeUser());
-    localStorage.removeItem('user');
-  };
-
-  const deleteAccount = () => {
-    dispatch(deleteUserApi(user[0].user.user_id, user[0].token));
-    localStorage.removeItem('user');
-  };
-
   return (
     <nav>
       <div className="btn-container">
         { navbarOpen
-          ? <button className="menu-btn" onClick={handleToggle} type="button">&#9776;</button> 
+          ? <button className="menu-btn" onClick={handleToggle} type="button">&#9776;</button>
           : <button className="menu-btn" onClick={handleToggle} type="button">&#9747;</button>}
       </div>
       <div className={`logo-container ${navbarOpen ? ' closeMenu' : ''}`}>
