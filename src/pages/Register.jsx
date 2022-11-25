@@ -8,14 +8,11 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 
 const SignupForm = () => {
-//   const [showPassword, setShowPassword] = useState(false);
-//   const [showPasswordConfirmation, setShowPasswordConfirmation] = useState(false);
 
-//   const [confPassword, setconfPassword] = useState('');
-//   const [loader, setLoader] = useState('Please wait...');
-//   const [errors, setErrors] = useState({});
-//   const [isSubmit, setIsSubmit] = useState(false);
-//   const [isLoading, setIsLoading] = useState(false);
+  const [loader, setLoader] = useState('Please wait...');
+  const [errors, setErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
 //   const nameRef = useRef(null);
 //   const emailRef = useRef(null);
