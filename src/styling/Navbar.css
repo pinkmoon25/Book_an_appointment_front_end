@@ -1,155 +1,154 @@
 .navbar-content {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          border-bottom: 1px solid #999;
-          padding: 1rem;
-        }
-        
-        .logo-container {
-          display: flex;
-          justify-content: center;
-        }
-        
-        .logo-container img {
-          width: 130px;
-          border-radius: 25px;
-        }
-        
-        .btn-container {
-          display: flex;
-          justify-content: flex-end;
-          background-color: #97bf0f;
-        }
-        
-        .menu-btn {
-          background-color: transparent;
-          border: none;
-          font-size: xx-large;
-          cursor: pointer;
-          margin-right: 2%;
-        }
-        
-        .logo {
-          width: 64px;
-          height: 64px;
-          margin-right: 1rem;
-        }
-        
-        .app-title {
-          display: inline-block;
-        }
-        
-        .nav-links {
-          display: flex;
-          flex-direction: column;
-          background-color: white;
-          margin-bottom: 0;
-          overflow: hidden;
-        }
-        
-        .nav-link {
-          text-decoration: none;
-          color: #292c29;
-          padding: 1rem;
-        }
-        
-        .nav-link:hover {
-          background-color: #00081d13;
-          color: black;
-        }
-        
-        .logo-container.closeMenu {
-          display: none;
-        }
-        
-        .nav-links.closeMenu {
-          display: none;
-        }
-        
-        .activated {
-          text-decoration: none;
-          background-color: #7f7f7f;
-          color: #fff;
-        }
-        
-        .sign-out {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          margin-bottom: 0;
-        }
-        
-        .sign-out-btn {
-          background-color: transparent;
-          border: none;
-          font-size: medium;
-          color: #1b641b;
-          padding: 2% 3%;
-          font-weight: bold;
-          cursor: pointer;
-        }
-        
-        @media screen and (min-width: 450px) {
-          nav {
-            display: flex;
-            background-color: #97bf0f;
-            padding: 0 2%;
-            height: 100vh;
-            justify-content: space-between;
-            flex-direction: column;
-          }
-        
-          .navbar-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 1rem;
-            padding-right: 0;
-          }
-        
-          .btn-container {
-            justify-content: flex-start;
-            margin-bottom: 25%;
-            margin-top: 10%;
-            margin-left: 10%;
-            margin-right: 10%;
-            background-color: transparent;
-          }
-        
-          .logo-container {
-            display: flex;
-            align-items: center;
-          }
-        
-          .logo {
-            width: 64px;
-            height: 64px;
-            margin-right: 1rem;
-          }
-        
-          .app-title {
-            display: inline-block;
-          }
-        
-          .nav-links {
-            border-radius: 1rem;
-            color: #292c29;
-            margin-bottom: 25%;
-          }
-        
-          .sign-out {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            margin-bottom: 25%;
-            min-width: 130px;
-            width: auto;
-          }
-        
-          .sign-out-btn {
-            color: white;
-            text-decoration: underline;
-          }
-        }
-        
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid #999;
+  padding: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-container img {
+  width: 130px;
+  border-radius: 25px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #97bf0f;
+}
+
+.menu-btn {
+  background-color: transparent;
+  border: none;
+  font-size: xx-large;
+  cursor: pointer;
+  margin-right: 2%;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  margin-right: 1rem;
+}
+
+.app-title {
+  display: inline-block;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #292c29;
+  padding: 1rem;
+}
+
+.nav-link:hover {
+  background-color: #00081d13;
+  color: black;
+}
+
+.logo-container.closeMenu {
+  display: none;
+}
+
+.nav-links.closeMenu {
+  display: none;
+}
+
+.activated {
+  text-decoration: none;
+  background-color: #7f7f7f;
+  color: #fff;
+}
+
+.sign-out {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 0;
+}
+
+.sign-out-btn {
+  background-color: transparent;
+  border: none;
+  font-size: medium;
+  color: #1b641b;
+  padding: 2% 3%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 450px) {
+  nav {
+    display: flex;
+    background-color: #97bf0f;
+    padding: 0 2%;
+    height: 100vh;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .navbar-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-right: 0;
+  }
+
+  .btn-container {
+    justify-content: flex-start;
+    margin-bottom: 25%;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: transparent;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    width: 64px;
+    height: 64px;
+    margin-right: 1rem;
+  }
+
+  .app-title {
+    display: inline-block;
+  }
+
+  .nav-links {
+    border-radius: 1rem;
+    color: #292c29;
+    margin-bottom: 25%;
+  }
+
+  .sign-out {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 25%;
+    min-width: 130px;
+    width: auto;
+  }
+
+  .sign-out-btn {
+    color: white;
+    text-decoration: underline;
+  }
+}
