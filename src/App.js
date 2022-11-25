@@ -1,10 +1,15 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RegisterForm from './pages/Register';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>This is our app by: Oyinlade</h1>
-    </div>
+    <Router>
+      <Routes>
+             <Route path="/register" element={<RegisterForm />} />
+      </Routes>
+    </Router>
   );
 }
 
