@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
-import style from '../css/register.module.css';
 import { signupUser } from '../redux/register/register';
 import Input from '../components/Input';
 import Button from '../components/Button';
@@ -43,54 +41,54 @@ const SignupForm = () => {
     return errors;
   };
 
-//   const [user, setUser] = useState({
-//     name: '',
-//     email: '',
-//     password: '',
-//   });
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
 
-//   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
+  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     setErrors(validate);
-//     setIsSubmit(true);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrors(validate);
+    setIsSubmit(true);
 
-//     const userData = { user };
-//     dispatch(signupUser(userData));
+    const userData = { user };
+    dispatch(signupUser(userData));
 
-//     setIsLoading(!isLoading);
+    setIsLoading(!isLoading);
 
-//     if ((isLoading === true && myData.status !== 200) || myData.user.error) {
-//       setTimeout(() => {
-//         setLoader('Try Again');
-//       }, 1000);
-//     }
+    if ((isLoading === true && myData.status !== 200) || myData.user.error) {
+      setTimeout(() => {
+        setLoader('Try Again');
+      }, 1000);
+    }
 
-//     if ((isLoading === false && myData.status !== 200) || myData.user.error) {
-//       setLoader('Please wait...');
-//       setTimeout(() => {
-//         setLoader('Try Again');
-//       }, 2000);
-//     }
-//   };
+    if ((isLoading === false && myData.status !== 200) || myData.user.error) {
+      setLoader('Please wait...');
+      setTimeout(() => {
+        setLoader('Try Again');
+      }, 2000);
+    }
+  };
 
-//   if (myData.status === 200) {
-//     setTimeout(() => {
-//       navigate('/login');
-//     }, 3000);
-//   }
+  if (myData.status === 200) {
+    setTimeout(() => {
+      navigate('/login');
+    }, 3000);
+  }
 
-//   const handleFailure = () => {
-//     if (myData.user.error) {
-//       return myData.user.error;
-//     }
-//     if (myData.status === 401) {
-//       const text = 'Email Already Exist';
-//       return text;
-//     }
-//     return errors.message;
-//   };
+  const handleFailure = () => {
+    if (myData.user.error) {
+      return myData.user.error;
+    }
+    if (myData.status === 401) {
+      const text = 'Email Already Exist';
+      return text;
+    }
+    return errors.message;
+  };
 
   return (
     <section className={style.signupSection}>
