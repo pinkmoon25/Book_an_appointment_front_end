@@ -1,15 +1,13 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import RegisterForm from './pages/Register';
-
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SignUp from './pages/registration/Register';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-             <Route path="/register" element={<RegisterForm />} />
-      </Routes>
-    </Router>
+    <div>
+      <SignUp />
+      <p>Motherfucker show up</p>
+    </div>
   );
 }
 
