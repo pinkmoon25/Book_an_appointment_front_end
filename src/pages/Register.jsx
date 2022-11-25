@@ -19,29 +19,29 @@ const SignupForm = () => {
   const passwordRef = useRef(null);
   
 
-//   const myData = useSelector((state) => state.registerReducer, shallowEqual);
+  const myData = useSelector((state) => state.registerReducer, shallowEqual);
 
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-//   const validate = () => {
-//     const errors = {};
-//     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  const validate = () => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
-//     if (!regex.test(emailRef.current.value)) {
-//       errors.message = 'This is not a valid email format!';
-//       emailRef.current.focus();
-//     }
-//     if (passwordRef.current.value.length < 6 || passwordRef.current.value.length > 40) {
-//       errors.message = 'The password must be between 6 and 40 characters';
-//       passwordRef.current.focus();
-//     }
-//     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-//       errors.message = 'The passwords do not match!';
-//       passwordConfirmRef.current.focus();
-//     }
-//     return errors;
-//   };
+    if (!regex.test(emailRef.current.value)) {
+      errors.message = 'This is not a valid email format!';
+      emailRef.current.focus();
+    }
+    if (passwordRef.current.value.length < 6 || passwordRef.current.value.length > 40) {
+      errors.message = 'The password must be between 6 and 40 characters';
+      passwordRef.current.focus();
+    }
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      errors.message = 'The passwords do not match!';
+      passwordConfirmRef.current.focus();
+    }
+    return errors;
+  };
 
 //   const [user, setUser] = useState({
 //     name: '',
