@@ -14,10 +14,10 @@ const SignupForm = () => {
   const [isSubmit, setIsSubmit] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-//   const nameRef = useRef(null);
-//   const emailRef = useRef(null);
-//   const passwordRef = useRef(null);
-//   const passwordConfirmRef = useRef();
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  
 
 //   const myData = useSelector((state) => state.registerReducer, shallowEqual);
 
