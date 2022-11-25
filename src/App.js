@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Navbar from './components/Navbar';
@@ -6,10 +6,8 @@ import './styling/Navbar.css';
 import { useSelector } from 'react-redux';
 import logo from '../codes_expert.png';
 import { NavLink } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
-
-
-
+import  React, { useState, useEffect } from 'react';
+import './styling/Navbar.css';
 
 const App = () => {
   const loggedUser=localStorage.getItem('user');
