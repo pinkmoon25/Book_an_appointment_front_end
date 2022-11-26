@@ -1,75 +1,148 @@
-.register_container * {
-  font-size: 2rem;
-}
-
-.register_container {
-  border: solid transparent;
-  padding: 0 20vw;
-  height: 100vh;
-}
-
-.form_container {
-  margin-top: 5rem;
-  padding: 1rem;
-  box-shadow: 0 0.7rem 0.9rem black;
-  border-radius: 1rem;
-  background-image: url('./back.jpg');
-  background-repeat: no-repeat;
+.signupSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:
+    linear-gradient(to right, #99e428de, #a7f334a2),
+    url('back.jpg');
   background-size: cover;
-  background-color: #0e81ab;
-  background-blend-mode: soft-light;
+  width: 100%;
+  min-height: 100vh;
 }
 
-.form_title {
-  font-size: 3rem;
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5% auto;
   text-align: center;
+  border-radius: 10px;
+  padding: 10px 40px 40px;
+  width: 30%;
+  background: #fff;
+  box-shadow:
+    rgba(255, 255, 255, 0.1) 0 1px 1px 0 inset,
+    rgba(50, 50, 93, 0.25) 0 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
 }
 
-label {
+.heading {
+  font-size: 40px;
   font-weight: bold;
+  color: #0ea5e9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-input {
-  padding: 1.2rem !important;
-  border-radius: 1rem !important;
-  -webkit-border-radius: 1rem !important;
-  -moz-border-radius: 1rem !important;
-  -ms-border-radius: 1rem !important;
-  -o-border-radius: 1rem !important;
+.line {
+  width: 50%;
+  height: 10px;
 }
 
-span {
+.eyeIcon {
+  color: #0ea5e9;
+}
+
+.formContainer {
+  width: 100%;
+  margin-top: -10%;
+}
+
+.form > .formGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  position: relative;
+  margin-bottom: 40px;
+  border-bottom: solid 2px #44522e;
+}
+
+.form input {
+  background: #fff;
+  color: rgb(116, 114, 114);
+  outline: none;
+  border: none;
+  line-height: 0;
+  padding: 7px;
+}
+
+.form input:focus,
+.form input:valid {
+  outline: none;
+  border: none;
+  line-height: 0;
+  padding: 7px;
+  background: #fff;
+}
+
+.formGroup > button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.formGroup > label {
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+  color: #0ea5e9;
+  font-size: 1.2rem;
+}
+
+.inputField:focus + .inputLabel,
+.inputField:valid + .inputLabel {
+  transform: translateY(-25px);
+}
+
+.submitBtn {
+  background: #feb500;
+  color: #fff;
+  font-size: 20px;
+  padding: 15px 40px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+}
+
+.submitBtn:hover {
+  background-color: #ca9100;
+}
+
+.link {
+  color: #0ea5e9;
+  text-decoration: none;
+}
+
+.errorMsg {
+  margin-bottom: 4rem;
   color: red;
 }
 
-.error_message {
-  display: inline-block;
-  width: 100%;
-  color: white;
-  background-color: rgba(255, 0, 0, 0.333);
-  text-align: center;
+.success {
+  color: #05c105;
+  margin-bottom: 4rem;
 }
 
-.submit_btn {
-  display: block;
-  margin-inline: auto;
-  padding: 0.5rem 3rem;
-}
-
-@media screen and (max-width: 1200px) {
-  .register_container {
-    padding: 0 1vw;
+@media screen and (max-width: 854px) {
+  .sectionContainer {
+    width: 60%;
   }
 }
 
-@media screen and (max-width: 992px) {
-  .register_container {
-    padding: 0 1vw;
+@media screen and (max-width: 563px) {
+  .sectionContainer {
+    width: 80%;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .register_container {
-    padding: 0;
+@media screen and (max-width: 422px) {
+  .sectionContainer {
+    width: 90%;
   }
 }

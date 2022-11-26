@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 // import { toast } from 'react-toastify';
 // import { useNavigate } from 'react-router-dom';
-import { Button, Form, Container } from 'react-bootstrap';
+// import { Button, Form, Container } from 'react-bootstrap';
 import axios from 'axios';
+import { Form } from 'react-bootstrap';
+import Button from '../../components/Button';
 import classes from './SignUp.module.css';
 import CircleSpinner from '../spinners/CircleSpinner';
 
@@ -14,6 +16,7 @@ const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [successfullSignUp, setSuccessfullSignUp] = useState(false);
+
 
   const signUpButtonContent = () => {
     if (!loading && !successfullSignUp) {
@@ -58,41 +61,43 @@ const SignUp = () => {
   };
 
   return (
-    <div className={classes.register_container}>
-      <Container className={classes.form_container}>
-        <h3 className={classes.form_title}>Sign Up</h3>
-        <span className={classes.error_message}>{errorMessage}</span>
-        <Form onSubmit={(e) => registerUser(e)}>
-          <Form.Group className="mb-3" controlId="formBasicName">
-            <Form.Label>Name</Form.Label>
-            <span>*</span>
+    <section className={classes.signupSection}>
+      <div className={classes.sectionContainer}>
+        <div className={classes.heading}>
+          <h2>Sign Up</h2>
+        </div>
+        <div className="errors">
+         <span className={classes.errorMsg}>{errorMessage}</span>
+        </div>
+        <div className={classes.formContainer}>
+          <form onSubmit={(e) => registerUser(e)} className={classes.form}>
+           <div className={classes.formGroup}>
+            <Form.Label className={classes.inputLabel}>Name</Form.Label>
+           <br />
             <Form.Control
               type="text"
-              placeholder="Enter Your Name"
               onChange={(e) => setUserName(e.target.value)}
               required
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email Address</Form.Label>
-            <span>*</span>
+          </div>
+          <div className={classes.formGroup}>
+          <Form.Label className={classes.inputLabel}>Email Address</Form.Label>
+          <br />
             <Form.Control
               type="email"
-              placeholder="Enter email"
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <span>*</span>
+          </div>
+          <div className={classes.formGroup}>
+          <Form.Label className={classes.inputLabel}>Password</Form.Label>
+          <br />
             <Form.Control
               type="password"
-              placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-          </Form.Group>
+          </div>
           <Button
             variant="primary"
             type="submit"
@@ -101,9 +106,19 @@ const SignUp = () => {
           >
             {signUpButtonContent()}
           </Button>
-        </Form>
-      </Container>
-    </div>
+          </form>
+        </div>
+        <div>
+          <p>
+            Already have an account?
+            {/* <Link to="/login" className={classes.link}>
+              {' '}
+              Login
+            </Link> */}
+          </p>
+        </div>
+      </div>
+    </section>
   );
 };
 
