@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="reservationform" element={<ReservationForm />} />
-          
+          <Route path="reservations" element={<ReservationsPage />} />
         </Routes>
       </BrowserRouter>
       <h1>This is our app by: Oyinlade</h1>
