@@ -9,6 +9,7 @@ const LogIn = () => {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const LogIn = () => {
     if(data.status === 401){
       setErrorMessage('Username/Password Incorrect')
     } else{
-      setErrorMessage('Signedin seuccessfully')
+      setSuccessMessage('Logged in succcessfully')
     }
 
 })
@@ -54,6 +55,7 @@ const LogIn = () => {
     <section className={classes.sessionForm}>
     <div className={classes.sessionContainer}>
     <p className={classes.errorMsg}>{errorMessage}</p>
+    <p className={classes.success}>{successMessage}</p>
         <div className={classes.formContainer}>
         <Form onSubmit={(e) => loginUser(e)} className={classes.form}>
         <div className={classes.heading}>
@@ -80,7 +82,7 @@ const LogIn = () => {
           <Button
             variant="primary"
             type="submit"
-            className={classes.submit_btn}
+            className={classes.submitBtn}
           >
             {logInButtonContent()}
           </Button>

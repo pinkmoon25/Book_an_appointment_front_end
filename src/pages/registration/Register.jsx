@@ -72,7 +72,7 @@ const SignUp = () => {
           <h2>Sign Up</h2>
         </div>
         <div className="errors">
-         <span className={classes.errorMsg}>{errorMessage}</span>
+         <span className={classes.errorMsg}>{signUpButtonContent()}</span>
         </div>
         <div className={classes.formContainer}>
           <form onSubmit={(e) => handleSubmit(e)} className={classes.form}>
@@ -106,10 +106,10 @@ const SignUp = () => {
           <Button
             variant="primary"
             type="submit"
-            className={classes.submit_btn}
+            className={classes.submitBtn}
             id="sign-up-btn"
           >
-            {signUpButtonContent()}
+           {signUpButtonContent()}
           </Button>
           </form>
           <p>{console.log(user.username)}</p>
