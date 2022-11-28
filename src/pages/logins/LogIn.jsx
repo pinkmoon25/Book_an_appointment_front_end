@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 // import { useNavigate } from 'react-router-dom';
@@ -7,14 +6,14 @@ import CircleSpinner from '../spinners/CircleSpinner';
 
 const LogIn = () => {
 //   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
+  const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setErrorMessage('');
-  }, [email, password]);
+  }, [username, password]);
 
   const logInButtonContent = () => {
     if (!loading) {
@@ -23,38 +22,33 @@ const LogIn = () => {
     return <CircleSpinner />;
   };
 
-  const loginUser = async (e) => {
-    e.preventDefault();
-    try {
-      setLoading(true);
-      const { data } = await axios({
-        url: 'http://127.0.0.1:3000/logins',
-        method: 'POST',
-        data: {
-          email,
-          password,
-        },
-      });
-      if (data.error) {
-        setErrorMessage(data.error);
-        return;
-      }
-      sessionStorage.setItem(data);
-    //   navigate('/');
-    } catch (err) {
-      setLoading(false);
-      const apiErrorMessages = {
-        emailErr: 'User with provided email not found!',
-        passwordErr: 'Incorrect password provided!',
-      };
-      const { error } = err.response.data;
-      if (error.match("Couldn't find User with...")) {
-        setErrorMessage(apiErrorMessages.emailErr);
-      } else {
-        setErrorMessage(apiErrorMessages.passwordErr);
-      }
+  const loginUser = (e) => {
+    e.preventDefault()
+    fetch('http://127.0.0.1:3000/sessions', {
+  method: "POST",
+  headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    username,
+    password,
+    
+  })
+})
+.then(response => response.json())
+.then(data => {
+    // setUser({... JSON.parse(data.user)})
+    // sessionStorage.setItem(data);
+    if(data.status === 401){
+      setErrorMessage('Username/Password Incorrect')
+    } else{
+      setErrorMessage('Signedin seuccessfully')
     }
-  };
+
+})
+}
+
 
   return (
     <section className={classes.sessionForm}>
@@ -66,11 +60,11 @@ const LogIn = () => {
               <h1>Login</h1>
               </div>
             <div className={classes.formGroup}>
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label>Username</Form.Label>
             <br />
             <Form.Control
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              onChange={(e) => setUserName(e.target.value)}
               required
             />
           </div>

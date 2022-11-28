@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 // import { toast } from 'react-toastify';
 // import { useNavigate } from 'react-router-dom';
 // import { Button, Form, Container } from 'react-bootstrap';
-import axios from 'axios';
+// import axios from 'axios';
 import { Form } from 'react-bootstrap';
 import Button from '../../components/Button';
 import classes from './SignUp.module.css';
 import CircleSpinner from '../spinners/CircleSpinner';
+
 
 const SignUp = () => {
   // const navigate = useNavigate();
@@ -16,7 +17,7 @@ const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [successfullSignUp, setSuccessfullSignUp] = useState(false);
-
+  const [user, setUser] = useState({});
 
   const signUpButtonContent = () => {
     if (!loading && !successfullSignUp) {
@@ -32,33 +33,35 @@ const SignUp = () => {
     setErrorMessage('');
   }, [password]);
 
-  const registerUser = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const { data } = await axios({
-        url: 'http://127.0.0.1:3000/registrations',
-        method: 'POST',
-        data: {
-          username,
-          email,
-          password,
-        },
-      });
-      setLoading(false);
-      if (data.error) {
-        setErrorMessage(data.error);
-        return;
-      }
+  const handleSubmit = (e) => {
+      e.preventDefault()
+      fetch('http://localhost:3000/registrations', {
+    method: "POST",
+    headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      username,
+      email,
+      password,
+      
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    try{
+      setUser({... JSON.parse(data.user)})
       setSuccessfullSignUp(true);
-      setInterval(() => {
-        // navigate('/login');
-      }, 1500);
-    } catch (err) {
+      console.log(user.username)
+    }
+    catch(err) {
       setLoading(false);
       setErrorMessage(err.message);
     }
-  };
+  })
+}
+
 
   return (
     <section className={classes.signupSection}>
@@ -70,7 +73,7 @@ const SignUp = () => {
          <span className={classes.errorMsg}>{errorMessage}</span>
         </div>
         <div className={classes.formContainer}>
-          <form onSubmit={(e) => registerUser(e)} className={classes.form}>
+          <form onSubmit={(e) => handleSubmit(e)} className={classes.form}>
            <div className={classes.formGroup}>
             <Form.Label className={classes.inputLabel}>Name</Form.Label>
            <br />
@@ -107,6 +110,8 @@ const SignUp = () => {
             {signUpButtonContent()}
           </Button>
           </form>
+          <p>{console.log(user.username)}</p>
+          
         </div>
         <div>
           <p>
