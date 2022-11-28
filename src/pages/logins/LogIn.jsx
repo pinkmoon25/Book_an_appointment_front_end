@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
-// import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classes from './LogIn.module.css';
 import CircleSpinner from '../spinners/CircleSpinner';
 
@@ -89,9 +89,9 @@ const LogIn = () => {
         <div>
           <p>
             Don&apos;t have an account yet?
-            {/* <Link to="/register" className={classes.link}>
+            <Link to="/register" className={classes.link}>
               Register
-            </Link> */}
+            </Link>
           </p>
         </div>
       </div>

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// import { toast } from 'react-toastify';
-// import { useNavigate } from 'react-router-dom';
-// import { Button, Form, Container } from 'react-bootstrap';
-// import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate, Link } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
 import Button from '../../components/Button';
 import classes from './SignUp.module.css';
@@ -10,7 +8,6 @@ import CircleSpinner from '../spinners/CircleSpinner';
 
 
 const SignUp = () => {
-  // const navigate = useNavigate();
   const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,6 +15,9 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const [successfullSignUp, setSuccessfullSignUp] = useState(false);
   const [user, setUser] = useState({});
+
+
+  const navigate = useNavigate();
 
   const signUpButtonContent = () => {
     if (!loading && !successfullSignUp) {
@@ -53,6 +53,8 @@ const SignUp = () => {
     try{
       setUser({... JSON.parse(data.user)})
       setSuccessfullSignUp(true);
+      toast.success('Successfully signed up');
+      navigate('/login');
       console.log(user.username)
     }
     catch(err) {
@@ -116,10 +118,10 @@ const SignUp = () => {
         <div>
           <p>
             Already have an account?
-            {/* <Link to="/login" className={classes.link}>
+            <Link to="/login" className={classes.link}>
               {' '}
               Login
-            </Link> */}
+            </Link>
           </p>
         </div>
       </div>

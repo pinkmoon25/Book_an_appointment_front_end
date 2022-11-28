@@ -1,14 +1,21 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LogIn from './pages/logins/LogIn';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignUp from './pages/registration/Register';
 
 function App() {
   return (
     <div>
-      <SignUp />
-      <LogIn />
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/register" element={<SignUp />} />
+        </Routes>
+      </BrowserRouter>
+
       <p>Motherfucker show up</p>
+     
     </div>
   );
 }
