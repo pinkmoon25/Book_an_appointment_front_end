@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
-import { addReservations } from '';
+import { addReservations } from './reservationSlice';
 
 function ReservationsPage() {
   const dispatch = useDispatch();
