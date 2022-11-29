@@ -64,7 +64,7 @@ function ReservationForm() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>RESERVATION FORM</h2>
       <p>Kindly fill to make reservation(s)</p>
       <Form onSubmit={handleSubmit}>
