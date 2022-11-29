@@ -1,9 +1,9 @@
 import React from 'react';
 
-function AddMentor() {
+function AddCoach() {
   return (
-    <div>AddMentor</div>
+    <div>AddCoach</div>
   );
 }
 
-export default AddMentor;
+export default AddCoach;
