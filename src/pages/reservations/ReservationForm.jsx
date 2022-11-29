@@ -49,7 +49,7 @@ function ReservationForm() {
     <div>
       <h2>RESERVATION FORM</h2>
       <p>Kindly fill to make reservation(s)</p>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Coach</Form.Label>
           <Form.Select
