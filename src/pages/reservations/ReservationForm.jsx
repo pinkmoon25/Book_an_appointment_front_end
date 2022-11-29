@@ -16,7 +16,13 @@ function ReservationForm() {
   const coaches = useSelector((state) => state?.coaches?.coaches);
   useEffect(() => {
     retrieveCoaches();
-  },[fetchCoaches]);
+  }, [fetchCoaches]);
+
+  const [state, setState] = useState({
+    coachId: id,
+    reserve_date: '',
+    city: '',
+  });
   const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
