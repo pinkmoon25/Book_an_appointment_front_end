@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ReservationForm from './pages/reservations/ReservationForm';
 import ReservationsPage from './pages/reservations/ReservationsPage';
-import AddMentor from './pages/mentors/AddMentor';
+import AddMentor from './pages/mentors/AddCoach';
 
 function App() {
   return (
