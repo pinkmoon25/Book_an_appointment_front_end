@@ -1,7 +1,8 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/prefer-default-export */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchCoaches = createAsyncThunk('coaches/fetchingCoaches', async (id) => {
+export const fetchCoaches = createAsyncThunk('coaches/fetchingCoaches', async () => {
   const response = await fetch('http://localhost:3000/api/v1/coaches');
   const coaches = await response.json();
   return coaches.data;
@@ -23,7 +24,7 @@ export const coachesSlice = createSlice({
   },
   reducers: {},
   extraReducers: {
-    [fetchCoaches.pending]: (state, action) => {
+    [fetchCoaches.pending]: (state) => {
       state.status = 'loading';
     },
     [fetchCoaches.fulfilled]: (state, action) => {
