@@ -1,13 +1,21 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 function ReservationForm() {
   const dispatch = useDispatch();
-  const fetchCoaches = () => {
-     
-   }
+  const retrieveCoaches = () => {
+    dispatch(fetchCoaches());
+  };
 
+  const { id } = useParams();
+
+  const coaches = useSelector((state) => state?.coaches?.coaches);
+  useEffect(() => {
+    retrieveCoaches();
+  },[fetchCoaches]);
   const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
