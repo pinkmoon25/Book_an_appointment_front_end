@@ -14,7 +14,6 @@ function App() {
           <Route path="addmentor" element={<AddMentor />} />
         </Routes>
       </BrowserRouter>
-      <h1>This is our app by: Oyinlade</h1>
     </div>
   );
 }
