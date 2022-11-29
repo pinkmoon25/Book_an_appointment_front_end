@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { fetchCoaches } from '../mentors/coachSlice';
 
 function ReservationForm() {
   const dispatch = useDispatch();
