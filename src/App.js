@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ReservationForm from './pages/reservations/ReservationForm';
 import ReservationsPage from './pages/reservations/ReservationsPage';
-import AddMentor from './pages/mentors/AddCoach';
+import AddCoach from './pages/mentors/AddCoach';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route path="reservationform" element={<ReservationForm />} />
           <Route path="reservations" element={<ReservationsPage />} />
-          <Route path="addmentor" element={<AddMentor />} />
+          <Route path="addcoach" element={<AddCoach />} />
         </Routes>
       </BrowserRouter>
     </div>
