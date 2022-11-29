@@ -18,7 +18,7 @@ export const deleteCoach = createAsyncThunk('coaches/deleteCoach', async (id) =>
 export const coachesSlice = createSlice({
   name: 'coaches',
   initialState: {
-    doctors: [],
+    coaches: [],
     status: 'idle',
     error: null,
   },
