@@ -10,6 +10,6 @@ export const fetchCoaches = createAsyncThunk('coaches/fetchingCoaches', async (i
 export const deleteCoach = createAsyncThunk('coaches/deleteCoach', async (id) => {
   const response = await fetch(`http://localhost:3000/api/v1/coaches/${id}`,
     { method: 'delete' });
-const coaches = await response.json();
-return coaches;
+  const coaches = await response.json();
+  return coaches;
 });
