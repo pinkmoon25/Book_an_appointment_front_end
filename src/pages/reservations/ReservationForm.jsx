@@ -3,6 +3,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 function ReservationForm() {
+  const [message, setMessage] = useState('');
+
+  const handleChange = (e) => {
+    setState({
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <div>
       <h2>RESERVATION FORM</h2>
