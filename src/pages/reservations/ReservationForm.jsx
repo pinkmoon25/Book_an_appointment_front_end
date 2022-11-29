@@ -1,8 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 function ReservationForm() {
+  
+
   const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
@@ -10,6 +12,39 @@ function ReservationForm() {
       [e.target.name]: e.target.value,
     });
   };
+
+  const resetFormFields = () => {
+    setState({
+      coachId: '',
+      reserve_date: '',
+      city: '',
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch('http://localhost:3000/api/v1/reservations', {
+        method: 'POST',
+        body: JSON.stringify({
+          coach_id: state.coachId,
+          reserve_date: state.reserve_date,
+          city: state.city,
+        }),
+      });
+      const resJson = await res.json();
+      console.log(resJson);
+      if (res.status === 200) {
+        setMessage('User created successfully');
+      } else {
+        setMessage('Some error occured');
+      }
+    } catch (err) {
+      console.log(message);
+    }
+    resetFormFields();
+  };
+
   return (
     <div>
       <h2>RESERVATION FORM</h2>
