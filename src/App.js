@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LogIn from './pages/logins/LogIn';
 import SignUp from './pages/registration/Register';
 import Home from './pages/Home';
-import LogOut from './components/LogOut';
+import LogOut from './pages/LogOut';
 
 function App() {
   return (

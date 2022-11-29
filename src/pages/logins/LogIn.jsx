@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import classes from './LogIn.module.css';
 import CircleSpinner from '../spinners/CircleSpinner';
 
 
+
 const LogIn = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  // const [isAuthenticated, setIsAuthenticated] = useState(false)
 
 
   useEffect(() => {
@@ -43,22 +46,23 @@ const LogIn = () => {
 })
 .then(response => response.json())
 .then(data => {
+  dispatch({ type: 'LOGIN_STATUS', payload: data });
     // setUser({... JSON.parse(data.user)})
     // sessionStorage.setItem(data);
     if(data.status === 401){
       setErrorMessage('Username/Password Incorrect')
-    } else if(data.logged_in === 'true'|| data.status === 200){
-      setSuccessMessage('Logged in succcessfully')
-      console.log(data);
-      navigate("/logout")
-    }
-}) 
-}
+    } else if(data.logged_in){
+        setSuccessMessage('Logged in succcessfully')
+        // setIsAuthenticated(true)
+        console.log(data);
+        navigate('/logout')
+      }
+    })
+  }
 
   return (
     <section className={classes.sessionForm}>
     <div className={classes.sessionContainer}>
-      {isAuthenticated ? "Welcome" : "Ooops, you need to sign up"}
     <p className={classes.errorMsg}>{errorMessage}</p>
     <p className={classes.success}>{successMessage}</p>
         <div className={classes.formContainer}>
