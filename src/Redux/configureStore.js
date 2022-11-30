@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import coachesReducer from '../pages/mentors/coachSlice';
-import reservationsReducer from '../pages/reservations/reservationSlice';
+import coachReducer from '../pages/mentors/coachesSlice';
+import reservations from '../pages/reservations/reservationPageSlice';
 
 const store = configureStore({
   reducer: {
-    coaches: coachesReducer,
-    reservations: reservationsReducer,
+    coach: coachReducer,
+    reservations,
   },
 });
 export default store;
