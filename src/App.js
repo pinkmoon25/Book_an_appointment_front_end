@@ -5,6 +5,7 @@ import SignUp from './pages/registration/Register';
 import Home from './pages/Home';
 import LogOut from './pages/LogOut';
 import MentorsPage from './pages/mentors/MentorsPage';
+import MentorsDetails from './pages/mentors/MentorsDetails';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/register" element={<SignUp />} />
           <Route path="/logout" element={<LogOut />} />
           <Route path='/mentors' element={<MentorsPage />} />
+          <Route path='/mentors/:id' element={<MentorsDetails />} />
         </Routes>
       </BrowserRouter>
     </div>
