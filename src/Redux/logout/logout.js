@@ -7,7 +7,6 @@ export const checkLoginStatus = () => async (dispatch) => {
     });
 
     const result = await response.json();
-    console.log(result);
     dispatch({ type: LOGIN_STATUS, payload: result });
   } catch (error) {
     console.log(error);

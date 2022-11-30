@@ -54,8 +54,7 @@ const LogIn = () => {
     } else if(data.logged_in){
         setSuccessMessage('Logged in succcessfully')
         // setIsAuthenticated(true)
-        console.log(data);
-        navigate('/logout')
+        navigate('/mentors')
       }
     })
   }

@@ -1,3 +1,4 @@
+
 const logout = async () => {
   fetch('http://localhost:3000/logout', {
     credentials: 'include',
@@ -9,16 +10,19 @@ const logout = async () => {
 
 const fetchMentors = async () => {
   try {
-    const { data } = await axios({
-      url: 'http://localhost:3000/',
-       credentials: 'include',
+      await fetch({
+      url: 'http://localhost:3000/api/v1/mentors',
+      credentials: 'include',
       method: 'GET',
-    });
-    dispatch(mentorsFetched(data));
+    })
+    .then((response) => response.json())
+    .then((data) => console.log(data));
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
+
+
 
 const userServices = {
   logout,
