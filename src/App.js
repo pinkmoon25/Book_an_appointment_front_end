@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import LogOut from './pages/LogOut';
 import MentorsPage from './pages/mentors/MentorsPage';
 import MentorsDetails from './pages/mentors/MentorsDetails';
+import ReservationForm from './pages/reservations/ReservationForm';
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<SignUp />} />
           <Route path="/logout" element={<LogOut />} />
-          <Route path='/mentors' element={<MentorsPage />} />
-          <Route path='/mentors/:id' element={<MentorsDetails />} />
+          <Route path="/mentors" element={<MentorsPage />} />
+          <Route path="/mentors/:id" element={<MentorsDetails />} />
+          <Route path="/reservation" element={<ReservationForm />} />
         </Routes>
       </BrowserRouter>
     </div>

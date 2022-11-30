@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
-import { useParams,  useLocation } from 'react-router-dom';
+import { useParams,  useLocation, Link, useNavigate} from 'react-router-dom';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { getMentors } from '../../Redux/mentors/mentors';
-import { BsStarFill, BsStar } from 'react-icons/bs';
-import { IoIosArrowDropright } from 'react-icons/io';
-import { Button } from 'react-bootstrap';
+import { BsArrowRightCircle, BsFillCaretLeftFill, BsStarFill, BsStar } from 'react-icons/bs';
 import Rating from 'react-rating';
+import classes from '../../css/mentors.module.css';
 
 
 const MentorsDetails = () => {
     const mentors = useSelector((state) => state.mentorsReducer, shallowEqual);
     const dispatch = useDispatch();
+    const navigate = useNavigate;
   
     const { id } = useParams();
     const { state } = useLocation();
@@ -29,15 +29,6 @@ const MentorsDetails = () => {
   
     mentor = JSON.parse(localStorage.getItem('item'));
 
-
-  const addReservation = () => {
-    navigate('', { state: { mentor } });
-  };
-
-    const returnToMentors = () => {
-        navigate('/mentors');
-      };
-
   return (
     <div className="relative flex flex-col w-full h-screen lg:py-12">
     {mentor && (
@@ -49,7 +40,7 @@ const MentorsDetails = () => {
             alt="Mentor"
           />
         </div>
-        <div className="flex flex-col w-full lg:w-72 lg:mr-20 py-10 px-10 lg:px-0">
+        <div className="flex flex-col w-full lg:w-78 lg:mr-20 py-10 px-10 lg:px-0">
           <h1 className="text-center lg:text-right font-bold text-2xl">
             {mentor.name}
           </h1>
@@ -97,17 +88,12 @@ const MentorsDetails = () => {
               </div>
               {mentor.skills.length > 0 && (
                 <div className="my-10 flex justify-center">
-                  <Button
-                    child={
-                      (
-                        <div className="flex items-center gap-3 justify-center">
-                          <p>Book now</p>
-                          <IoIosArrowDropright size={20} />
-                        </div>
-                      )
-                    }
-                    onClick={addReservation}
-                  />
+                    <div className={`${classes.reserve} ${classes.reserveDiv} p-2 d-flex`}>
+                <Link to="/reservation" state={mentor} className={`btn btn-light ${classes.reserveBtn}`}>
+                  Reserve
+                </Link>
+                <BsArrowRightCircle className="mx-2" size={40} color="white" />
+                </div>
                 </div>
               )}
             </div>
@@ -122,47 +108,13 @@ const MentorsDetails = () => {
           </div>
         </div>
       )}
-       <Button
-            variant="primary"
-            type="submit"
-            // className={classes.submitBtn}
-            onClick={returnToMentors}
-          >
-            Back
-          </Button>
+          <Link to="/mentors">
+          <div className={`${classes.backNav} d-flex justify-content-center align-items-center`}>
+            <BsFillCaretLeftFill />
+        </div>
+        </Link>
     </div>
   )
 }
 
-{/* <div className={styles.detailContainer}>
-<div className={styles.container}>
-  <img src={mentor.image} alt={mentor.name} className={styles.docImage} />
-  <div className={styles.mentorInfoDiv}>
-    <div className={`text-end ${styles.mentorInfo}`}>
-      <h1 className="fw-bolder fs-4">{mentor.name}</h1>
-      <p className={styles.desc}>{mentor.bio}</p>
-    </div>
-    {mentor.skills.map((skill) =>(
-              <><span>{skill.name}</span>
-              <span>{skill.icon}</span></>
-            ))}
-    <div className="d-flex justify-content-end">
-      <div className={`${styles.reserve} ${styles.reserveDiv} p-2 d-flex`}>
-        <Link to="/reserve" state={mentor} className={`btn btn-light ${styles.reserveBtn}`}>
-          Reserve
-        </Link>
-        <BsArrowRightCircle className="mx-2" size={40} color="white" />
-      </div>
-    </div>
-  </div>
-</div>
-<Link to="/mentors">
-  <div className={`${styles.backNav} d-flex justify-content-center align-items-center`}>
-    <BsFillCaretLeftFill />
-  </div>
-</Link>
-</div> */}
-// )
-// };
-
-export default MentorsDetails
+export default MentorsDetails;
