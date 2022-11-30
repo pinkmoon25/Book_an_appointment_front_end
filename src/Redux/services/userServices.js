@@ -11,12 +11,9 @@ const fetchMentors = async () => {
   try {
     const { data } = await axios({
       url: 'http://localhost:3000/',
+       credentials: 'include',
       method: 'GET',
     });
-    if (data.error) {
-      setErrorMessage(data.error);
-      return;
-    }
     dispatch(mentorsFetched(data));
   } catch (error) {
     console.log(error);
