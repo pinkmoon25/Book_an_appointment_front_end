@@ -7,8 +7,25 @@ const logout = async () => {
     .then((data) => console.log(data));
 };
 
+const fetchMentors = async () => {
+  try {
+    const { data } = await axios({
+      url: 'http://localhost:3000/',
+      method: 'GET',
+    });
+    if (data.error) {
+      setErrorMessage(data.error);
+      return;
+    }
+    dispatch(mentorsFetched(data));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const userServices = {
   logout,
+  fetchMentors,
 };
 
 export default userServices;
