@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { fetchCoaches } from '../mentors/coachSlice';
+import { fetchCoaches } from '../mentors/coachesSlice';
+import './make_reservation.css';
 
 function ReservationForm() {
   const dispatch = useDispatch();
@@ -64,20 +65,21 @@ function ReservationForm() {
   };
 
   return (
-    <div className="container">
-      <h2>RESERVATION FORM</h2>
+    <div className="d-flex flex-column justify-content-center mb-3 mt-5 align-items-center make-reservation">
+      <h3>RESERVATION FORM</h3>
       <p>Kindly fill to make reservation(s)</p>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label>Coach</Form.Label>
+          <Form.Label className="d-flex">Coach</Form.Label>
           <Form.Select
             id="coachId"
             name="coachId"
             value={state.coachId}
             onChange={handleChange}
+            className="select-input"
           >
             <option value="default">Select a coach</option>
-            {coaches.map((coach) => (
+            {coaches?.map((coach) => (
               <option key={coach.id} value={coach.id}>
                 {coach.name}
               </option>
@@ -105,7 +107,7 @@ function ReservationForm() {
             placeholder="Where?"
             onChange={handleChange}
           />
-          <Button type="submit">Submit Reservation</Button>
+          <Button type="submit" className="mt-3 btn">Submit Reservation</Button>
         </Form.Group>
       </Form>
     </div>
