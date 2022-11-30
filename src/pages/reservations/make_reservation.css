@@ -1,0 +1,48 @@
+* {
+  margin:0;
+  padding: 0;
+  box-sizing:border-box;
+}
+
+.make-reservation {
+  background-color: #98bf0c;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 5px;
+  font-weight: 500;
+  color: #FFF;
+  font-size:1.3rem;
+  border-radius: 8px;
+}
+
+.make-reservation h3 {
+  margin-top: 2rem;
+}
+
+.make-reservation input {
+  border-radius: 10px;
+  height: 40px;
+  border: none;
+  font-weight: 500;
+  width: 20rem;
+}
+
+.make-reservation select, .btn {
+  width: 20rem;
+}
+
+  .btn {
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #28300b;
+  font-size: 18px;
+  padding-bottom: 2rem;
+}
+
+.btn:hover {
+  background-color:#c4ec32;
+  color: #222;
+  font-weight: 500;
+  font-size:1.5rem;
+}
