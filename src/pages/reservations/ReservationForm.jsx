@@ -20,3 +20,6 @@ const ReservationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
   }
+  return (
+    <div>
+      <form onSubmit={(e) => handleSubmit(e)}>
