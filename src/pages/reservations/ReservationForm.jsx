@@ -30,4 +30,8 @@ const ReservationForm = () => {
         </select>
         <input type='submit' value='Book' />
       </form>
+      {(mentor.skills?.map((s) => {
+        console.log(s.name)
+        console.log(s)
+      }))}
     
