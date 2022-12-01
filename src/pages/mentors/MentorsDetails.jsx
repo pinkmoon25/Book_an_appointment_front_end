@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams,  useLocation, Link, useNavigate} from 'react-router-dom';
+import { useParams,  useLocation, Link } from 'react-router-dom';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { getMentors } from '../../Redux/mentors/mentors';
 import { BsArrowRightCircle, BsFillCaretLeftFill, BsStarFill, BsStar } from 'react-icons/bs';
@@ -10,7 +10,7 @@ import classes from '../../css/mentors.module.css';
 const MentorsDetails = () => {
     const mentors = useSelector((state) => state.mentorsReducer, shallowEqual);
     const dispatch = useDispatch();
-    const navigate = useNavigate;
+
   
     const { id } = useParams();
     const { state } = useLocation();
@@ -54,20 +54,20 @@ const MentorsDetails = () => {
               </div>
               {mentor.skills.length > 0 && (
                 <ul className="grow-0">
-                  {mentor.skills.map((mentorDetail) => (
+                  {mentor.skills.map((s) => (
                     <li
-                      key={mentorDetail.id}
+                      key={s.id}
                       className="odd:bg-gray-200 bg-gray-100 py-2 px-4"
                     >
                        <div className="flex items-center justify-center">
                          <div className="w-12 mr-2">
-                           <img src={mentorDetail.icon} alt="Skills" />
+                           <img src={s.icon} alt="Skills" />
                            </div>
-                           <h3 className="grow">{mentorDetail.name}</h3>
+                           <h3 className="grow">{s.name}</h3>
                            <div>
                              <Rating
                               step={1}
-                              initialRating={mentorDetail.rating}
+                              initialRating={s.rating}
                               readonly
                               stop={5}
                               fractions={2}
@@ -89,7 +89,7 @@ const MentorsDetails = () => {
               {mentor.skills.length > 0 && (
                 <div className="my-10 flex justify-center">
                     <div className={`${classes.reserve} ${classes.reserveDiv} p-2 d-flex`}>
-                <Link to="/reservation" state={mentor} className={`btn btn-light ${classes.reserveBtn}`}>
+                <Link to= { `/reservation/${mentor.id}`} state={{mentor}} className={`btn btn-light ${classes.reserveBtn}`}>
                   Reserve
                 </Link>
                 <BsArrowRightCircle className="mx-2" size={40} color="white" />

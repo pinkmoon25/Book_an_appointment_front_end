@@ -20,7 +20,7 @@ function App() {
           <Route path="/logout" element={<LogOut />} />
           <Route path="/mentors" element={<MentorsPage />} />
           <Route path="/mentors/:id" element={<MentorsDetails />} />
-          <Route path="/reservation" element={<ReservationForm />} />
+          <Route path="/reservation/:id" element={<ReservationForm />} />
         </Routes>
       </BrowserRouter>
     </div>
