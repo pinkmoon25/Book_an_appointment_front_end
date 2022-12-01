@@ -28,3 +28,6 @@ const ReservationForm = () => {
         <select name="skills" id="skills">
           <option value='react'>react</option>
         </select>
+        <input type='submit' value='Book' />
+      </form>
+    
