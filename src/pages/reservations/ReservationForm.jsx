@@ -24,3 +24,4 @@ const ReservationForm = () => {
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <h1>Reservation</h1>
+        <input name='date' type='date' value={date} onChange={(e) => setDate(e.target.value)} />
