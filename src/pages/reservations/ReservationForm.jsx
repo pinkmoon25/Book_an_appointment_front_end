@@ -8,3 +8,4 @@ const ReservationForm = () => {
   const mentors = useSelector((state) => state.mentorsReducer);
   // const [mentor, setMentor] = useState({});
   const dispatch = useDispatch();
+  const { id } = useParams();
