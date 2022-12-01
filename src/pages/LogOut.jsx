@@ -1,13 +1,12 @@
-import React from 'react'
-
+/* eslint-disable arrow-body-style */
+import React from 'react';
 
 const LogOut = () => {
- 
   return (
     <div>
-              <h1>This is the main page</h1>
+      <h1>This is the main page</h1>
     </div>
-  )
-}
+  );
+};
 
-export default LogOut
+export default LogOut;
