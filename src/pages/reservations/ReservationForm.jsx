@@ -14,3 +14,6 @@ const ReservationForm = () => {
   },
     []
   )
+  let mentor = mentors.find((item) => parseInt(item.id, 10) === parseInt(id, 10));
+  if (!mentor) { localStorage.setItem('item', JSON.stringify(mentor)) }
+  mentor = JSON.parse(localStorage.getItem('item'));
