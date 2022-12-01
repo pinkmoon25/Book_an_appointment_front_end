@@ -34,4 +34,10 @@ const ReservationForm = () => {
         console.log(s.name)
         console.log(s)
       }))}
+
+    </div>
+  )
+}
+export default ReservationForm
+
     
