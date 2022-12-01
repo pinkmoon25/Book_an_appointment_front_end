@@ -23,3 +23,4 @@ const ReservationForm = () => {
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
+        <h1>Reservation</h1>
