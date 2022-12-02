@@ -9,7 +9,6 @@ import MentorsDetails from './pages/mentors/MentorsDetails';
 import ReservationForm from './pages/reservations/ReservationForm';
 import ReservationsPage from './pages/reservations/ReservationsPage';
 
-
 function App() {
   return (
     <div>

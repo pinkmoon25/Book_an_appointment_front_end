@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import style from '../../css/reserveform.module.css';
+import style from '../../css/reservepage.module.css';
 import { getAppointments, deleteAppointment } from '../../Redux/addReservation/addReservation';
 
 const ReservationsPage = () => {
