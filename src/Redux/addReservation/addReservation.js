@@ -28,32 +28,32 @@
         //   }
         // };
         
-        // export const deleteAppointment = (id) => async (dispatch) => {
-        //   await userServices.deleteAppointment(id);
-        //   return dispatch({
-        //     type: DELETE_APPOINTMENTS,
-        //     payload: id,
-        //   });
-        // };
+        export const deleteAppointment = (id) => async (dispatch) => {
+          await userServices.deleteAppointment(id);
+          return dispatch({
+            type: DELETE_APPOINTMENTS,
+            payload: id,
+          });
+        };
         
 
-        // const appointmentReducer = (state = initialState, action) => {
-        //   const { payload, type } = action;
-        //   switch (type) {
-        //     case FETCH_APPOINTMENTS:
-        //       return { ...state, appointments: payload };
-        //     case CREATE_APPOINTMENTS:
-        //       return payload;
-        //     case DELETE_APPOINTMENTS:
-        //       return {
-        //         ...state,
-        //         appointments: [
-        //           ...state.appointments.filter((appointment) => appointment.id !== payload),
-        //         ],
-        //       };
-        //     default:
-        //       return state;
-        //   }
-        // };
+        const appointmentReducer = (state = initialState, action) => {
+          const { payload, type } = action;
+          switch (type) {
+            case FETCH_APPOINTMENTS:
+              return { ...state, appointments: payload };
+            case CREATE_APPOINTMENTS:
+              return payload;
+            case DELETE_APPOINTMENTS:
+              return {
+                ...state,
+                appointments: [
+                  ...state.appointments.filter((appointment) => appointment.id !== payload),
+                ],
+              };
+            default:
+              return state;
+          }
+        };
         
-        // export default appointmentReducer;
+        export default appointmentReducer;
