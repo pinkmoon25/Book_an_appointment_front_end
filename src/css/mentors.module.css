@@ -58,12 +58,23 @@ ul {
   width: 100%;
 }
 
+
 .navigation {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 2rem;
+}
+
+.navigationPanel {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 0;
+  border: 1px solid #cacac8;
 }
 
 .active {
