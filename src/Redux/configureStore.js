@@ -2,17 +2,16 @@ import { applyMiddleware, combineReducers, configureStore } from '@reduxjs/toolk
 import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
-import { loginReducer } from './logout/logout';
-import { logOutReducer } from './logout/logout';
+import { loginReducer, logOutReducer } from './logout/logout';
 import mentorsReducer from './mentors/mentors';
-import appointmentReducer from './addReservation/addReservation'
+import appointmentReducer from './addReservation/addReservation';
 
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
 };
-const rootReducer = combineReducers({ 
+const rootReducer = combineReducers({
   loginStatus: loginReducer,
   logOutReducer,
   mentorsReducer,
@@ -23,7 +22,8 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-  serializableCheck: false,
-  })}, applyMiddleware(thunk));
+    serializableCheck: false,
+  }),
+}, applyMiddleware(thunk));
 
 export default store;

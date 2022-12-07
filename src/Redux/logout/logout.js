@@ -24,16 +24,10 @@ export const logout = async () => {
     .then((data) => console.log(data));
 };
 
-
-
-
 export const loginReducer = (state = {}, action) => {
   if (action.type === LOGIN_STATUS) {
     return action.payload;
   }
-if (action.type === LOGOUT_STATUS){
-     
-}
   return state;
 };
 
@@ -41,8 +35,5 @@ export const logOutReducer = (state = {}, action) => {
   if (action.type === LOGIN_STATUS) {
     return action.payload;
   }
-if (action.type === LOGOUT_STATUS){
-     
-}
   return state;
 };
