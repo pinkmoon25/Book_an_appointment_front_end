@@ -24,10 +24,6 @@ const MentorsDetails = () => {
     );
   
     let mentor = mentors.find((item) => parseInt(item.id, 10) === parseInt(id, 10));
-  
-    localStorage.setItem('item', JSON.stringify(state));
-  
-    mentor = JSON.parse(localStorage.getItem('item'));
 
   return (
     <div className="relative flex flex-col w-full h-screen lg:py-12">

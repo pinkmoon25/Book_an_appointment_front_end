@@ -5,11 +5,11 @@ import 'react-multi-carousel/lib/styles.css'
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import styles from '../../css/mentors.module.css';
 import { getMentors } from '../../Redux/mentors/mentors';
+import SideBar from '../sidebar/sidebar';
 
 
 const MentorsPage = () => {
   const mentors = useSelector((state) => state.mentorsReducer, shallowEqual);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const MentorsPage = () => {
           <p className="text-secondary">{mentor.bio}</p>
           <div>
             {mentor.skills.map((skill) =>(
-              <><span>{skill.name}</span></>
+              <><span key={skill.id}>{skill.name}</span></>
             ))}
           </div>
         </div>
@@ -35,7 +35,8 @@ const MentorsPage = () => {
 
   return (
     <>
-      <div className={styles.mrntorsContainer}>
+    <SideBar />
+      <div className={styles.mentorsContainer}>
         <div className={styles.header}>
           <h3>LIST OF Mentors</h3>
           <p className="text-secondary">Please select a mentor to view details</p>
