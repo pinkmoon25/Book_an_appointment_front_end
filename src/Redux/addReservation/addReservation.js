@@ -14,18 +14,27 @@ export const getAppointments = () => async (dispatch) => {
   });
 };
 
-// export const createAppointment = () => async (dispatch) => {
-//   try {
-//     const response = await fetch('http://localhost:3000/api/v1/reservations', {
-//       credentials: 'include',
-//     });
-//     const result = await response.json();
-//     dispatch({ type: CREATE_APPOINTMENTS, payload: result });
-//     console.log(result)
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const createAppointment = (newData) => async (dispatch) => {
+  console.log(newData)
+  try {
+    const response = await fetch('http://localhost:3000/api/v1/reservations', {
+      credentials: 'include',
+      method: "POST",
+      headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+       ...newData
+      })
+    });
+    const result = await response.json();
+    dispatch({ type: CREATE_APPOINTMENTS, payload: result });
+    console.log(result)
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const deleteAppointment = (id) => async (dispatch) => {
   await userServices.deleteAppointment(id);
