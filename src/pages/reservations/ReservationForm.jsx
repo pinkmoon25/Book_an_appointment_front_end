@@ -153,7 +153,7 @@ const ReservationForm = () => {
                   Choose a skill
                 </option>
                 {mentor?.skills.map((m) => (
-                  <option key={m.id} value={m.id}>
+                  <option key={m.id} value={m.name}>
                     {m.name}
                   </option>
                 ))}
