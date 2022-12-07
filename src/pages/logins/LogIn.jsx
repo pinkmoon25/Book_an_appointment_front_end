@@ -53,6 +53,7 @@ const LogIn = () => {
       setErrorMessage('Username/Password Incorrect')
     } else if(data.logged_in){
         setSuccessMessage('Logged in succcessfully')
+        console.log(data)
         // setIsAuthenticated(true)
         navigate('/mentors')
       }
