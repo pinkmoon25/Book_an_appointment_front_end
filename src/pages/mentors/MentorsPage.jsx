@@ -10,7 +10,6 @@ import SideBar from '../sidebar/sidebar';
 
 const MentorsPage = () => {
   const mentors = useSelector((state) => state.mentorsReducer, shallowEqual);
-  console.log(mentors)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,7 +25,7 @@ const MentorsPage = () => {
           <p className="text-secondary">{mentor.bio}</p>
           <div>
             {mentor.skills.map((skill) =>(
-              <><span>{skill.name}</span></>
+              <><span key={skill.id}>{skill.name}</span></>
             ))}
           </div>
         </div>
