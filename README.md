@@ -124,22 +124,6 @@ To run the project, execute the following command:
   yarn start
 ```
 
-### Run tests
-
-To run tests, run the following command:
-
-```sh
-  yarn test
-```
-
-### Deployment
-
-You can deploy this project using:
-
-```sh
-  git push main
-```
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Authors <a name="authors"></a>
@@ -193,6 +177,6 @@ I would like to thank Microverse for giving me the opportunity to work on this p
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
