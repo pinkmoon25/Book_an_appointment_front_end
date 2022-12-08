@@ -4,13 +4,12 @@ import { useDispatch, shallowEqual, useSelector } from 'react-redux';
 import { FaBars } from 'react-icons/fa';
 import socialLinks from './socialLinks';
 import styles from '../../css/mentors.module.css';
-import logOutReducer  from '../../Redux/configureStore';
 import Button from '../../components/Button';
+import { logout } from '../../Redux/logout/logout';
 
 
 const Sidebar = () => {
-  const myData = useSelector((state) => state.loginReducer, shallowEqual);
-
+  const userData = useSelector((state) => state.loginStatus, shallowEqual);
   const toggleMenu = () => {
     const navMenu = document.querySelector('nav');
     navMenu.classList.toggle(styles.toggle);
@@ -20,8 +19,9 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    dispatch(logOutReducer());
-  };
+      dispatch(logout())
+      navigate('/')
+    };
   // if (myData.status === 204) {
   //   localStorage.removeItem('jwt-token');
   //   setTimeout(() => {
@@ -37,7 +37,7 @@ const Sidebar = () => {
     },
     {
       id: 2,
-      route: '/reservations',
+      route: userData.logged_in ? '/reservations' : '/login',
       children: 'Reservations',
     },
   ];
@@ -70,7 +70,7 @@ const Sidebar = () => {
           <div className={`d-flex flex-column align-items-center ${styles.socialLogoutDiv}`}>
             <ul className={styles.logoutDiv}>
               <li>
-                <Button type="button" className={styles.logoutLink} onClick={() => handleLogout()}>
+                <Button type="button" className={styles.logoutLink} onClick={handleLogout}>
                   Logout
                 </Button>
               </li>

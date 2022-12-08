@@ -6,9 +6,9 @@ import { BsArrowRightCircle, BsFillCaretLeftFill, BsStarFill, BsStar } from 'rea
 import Rating from 'react-rating';
 import classes from '../../css/mentors.module.css';
 
-
 const MentorsDetails = () => {
     const mentors = useSelector((state) => state.mentorsReducer, shallowEqual);
+    const userData = useSelector((state) => state.loginStatus, shallowEqual);
     const dispatch = useDispatch();
 
   
@@ -85,7 +85,7 @@ const MentorsDetails = () => {
               {mentor.skills.length > 0 && (
                 <div className="my-10 flex justify-center">
                     <div className={`${classes.reserve} ${classes.reserveDiv} p-2 d-flex`}>
-                <Link to= { `/reservation/${mentor.id}`} state={{mentor}} className={`btn btn-light ${classes.reserveBtn}`}>
+                <Link to= { userData.logged_in ? `/reservation/${mentor.id}` : '/login'} state={{mentor}} className={`btn btn-light ${classes.reserveBtn}`}>
                   Reserve
                 </Link>
                 <BsArrowRightCircle className="mx-2" size={40} color="white" />

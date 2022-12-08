@@ -17,7 +17,7 @@ const ReservationForm = () => {
   const mentorRef = useRef(null);
   const dateRef = useRef(null);
 
-  const myData = useSelector((state) => state.appointmentReducer, shallowEqual);
+  // const myData = useSelector((state) => state.appointmentReducer, shallowEqual);
 
   const mentors = useSelector((state) => state.mentorsReducer);
   let mentor = mentors.find((item) => parseInt(item.id, 10) === parseInt(id, 10));
