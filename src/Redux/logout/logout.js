@@ -14,26 +14,25 @@ export const checkLoginStatus = () => async (dispatch) => {
   }
 };
 
-export const logout = async () => {
-  fetch('http://localhost:3000/logout', {
+export const logout = () => async (dispatch) => {
+  const response = await fetch('http://localhost:3000/logout', {
     credentials: 'include',
     method: 'DELETE',
-    type: LOGOUT_STATUS,
-  })
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+  });
+  const result = await response.json();
+  if (result.logged_out) {
+    dispatch({ type: LOGOUT_STATUS });
+  }
 };
 
 export const loginReducer = (state = {}, action) => {
   if (action.type === LOGIN_STATUS) {
     return action.payload;
   }
-  return state;
-};
 
-export const logOutReducer = (state = {}, action) => {
-  if (action.type === LOGIN_STATUS) {
-    return action.payload;
+  if (action.type === LOGOUT_STATUS) {
+    return {};
   }
+
   return state;
 };
