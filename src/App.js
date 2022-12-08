@@ -8,24 +8,22 @@ import MentorsDetails from './pages/mentors/MentorsDetails';
 import ReservationForm from './pages/reservations/ReservationForm';
 import ReservationsPage from './pages/reservations/ReservationsPage';
 
-function App() {
-  return (
-    <div>
+const App = () => (
+  <div>
 
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/register" element={<SignUp />} />
-          <Route path="/mentors" element={<MentorsPage />} />
-          <Route path="/mentors/:id" element={<MentorsDetails />} />
-          <Route path="/reservation/:id" element={<ReservationForm />} />
-          <Route path="/reservations" element={<ReservationsPage />} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/register" element={<SignUp />} />
+        <Route path="/mentors" element={<MentorsPage />} />
+        <Route path="/mentors/:id" element={<MentorsDetails />} />
+        <Route path="/reservation/:id" element={<ReservationForm />} />
+        <Route path="/reservations" element={<ReservationsPage />} />
 
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
-}
+      </Routes>
+    </BrowserRouter>
+  </div>
+);
 
 export default App;
