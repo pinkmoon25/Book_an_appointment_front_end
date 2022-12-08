@@ -2,9 +2,8 @@ import { applyMiddleware, combineReducers, configureStore } from '@reduxjs/toolk
 import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
-import { loginReducer, logOutReducer } from './logout/logout';
+import { loginReducer } from './logout/logout';
 import mentorsReducer from './mentors/mentors';
-import appointmentReducer from './addReservation/addReservation';
 
 const persistConfig = {
   key: 'root',
@@ -13,9 +12,7 @@ const persistConfig = {
 };
 const rootReducer = combineReducers({
   loginStatus: loginReducer,
-  logOutReducer,
   mentorsReducer,
-  appointmentReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
