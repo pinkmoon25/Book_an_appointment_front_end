@@ -13,13 +13,7 @@ const ReservationForm = () => {
   // const [skills, setSkills] = useState('');
   const [date, setDate] = useState('');
 
-  const [isSubmit, setIsSubmit] = useState(false);
-  const [errors, setErrors] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [loader, setLoader] = useState('Please wait...');
-
   const { id } = useParams();
-  const user_id = useRef(null);
   const mentorRef = useRef(null);
   const dateRef = useRef(null);
 
@@ -43,28 +37,7 @@ const ReservationForm = () => {
   //   navMenu.classList.toggle(style.sidebarContainer);
   // };
 
-  const validate = () => {
-    const errors = {};
-
-    // if (skillRef.current.value === '') {
-    //   errors.message = 'skills cannot be blank';
-    //   skillRef.current.focus();
-    // }
-    if (mentorRef.current.value === '') {
-      errors.message = 'Please select a mentor';
-      mentorRef.current.focus();
-    }
-    if (dateRef.current.value === '') {
-      errors.message = 'Select appointment date';
-      dateRef.current.focus();
-    }
-    return errors;
-  };
-
   const handleSubmit = () => {
-    setErrors(validate);
-    setIsSubmit(true);
-
     const newData = {
       mentor_id: parseInt(id, 10),
       user_id: current_user.id,
@@ -72,36 +45,9 @@ const ReservationForm = () => {
       subject,
     };
     dispatch(createAppointment(newData));
-
-    setIsLoading(!isLoading);
-
-    if ((isLoading === true && myData.status !== 200)) {
-      setTimeout(() => {
-        setLoader('Try Again');
-      }, 1000);
-    }
-
-    if ((isLoading === false && myData.status !== 200)) {
-      setLoader('Please wait...');
-      setTimeout(() => {
-        setLoader('Try Again');
-      }, 1000);
-    }
-  };
-
-  if (isSubmit === true) {
-    setTimeout(() => {
-      navigate('/reservations');
-    }, 3000);
+    navigate('/reservations');
   }
 
-  const handleFailure = () => {
-    if (myData.status === 500) {
-      const text = 'Something went wrong, Kindly fill all the fields';
-      return text;
-    }
-    return errors.message;
-  };
 
   return (
     <>
@@ -170,15 +116,9 @@ const ReservationForm = () => {
             </form>
           </div>
           <div className={style.buttonBody}>
-            {isSubmit? (
               <Button type="submit" className={style.bookButton} onClick={() => handleSubmit()}>
-                {loader}
+                Book now
               </Button>
-            ) : (
-              <Button type="submit" className={style.bookButton} onClick={() => handleSubmit()}>
-                {isLoading ? 'Please wait...' : 'Book Now!'}
-              </Button>
-            )}
           </div>
         </div>
       </section>

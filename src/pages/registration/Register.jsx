@@ -35,7 +35,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
       e.preventDefault()
-      fetch('http://localhost:3000/registrations', {
+      fetch('http://localhost:3000//registrations', {
     method: "POST",
     headers: {
         "Accept": "application/json",
@@ -58,6 +58,7 @@ const SignUp = () => {
       console.log(user.username)
     }
     catch(err) {
+      console.log(err)
       setLoading(false);
       setErrorMessage(err.message);
     }
@@ -112,7 +113,6 @@ const SignUp = () => {
            {signUpButtonContent()}
           </Button>
           </form>
-          <p>{console.log(user.username)}</p>
           
         </div>
         <div>
