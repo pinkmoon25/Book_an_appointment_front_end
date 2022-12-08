@@ -22,12 +22,6 @@ const Sidebar = () => {
       dispatch(logout())
       navigate('/')
     };
-  // if (myData.status === 204) {
-  //   localStorage.removeItem('jwt-token');
-  //   setTimeout(() => {
-  //     navigate('/login');
-  //   }, 2000);
-  // }
 
   const navLinks = [
     {

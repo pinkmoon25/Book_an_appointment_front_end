@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams,  useLocation, Link } from 'react-router-dom';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
-import { getMentors } from '../../Redux/mentors/mentors';
-import { BsArrowRightCircle, BsFillCaretLeftFill, BsStarFill, BsStar } from 'react-icons/bs';
 import Rating from 'react-rating';
+import { BsArrowRightCircle, BsFillCaretLeftFill, BsStarFill, BsStar } from 'react-icons/bs';
+import { getMentors } from '../../Redux/mentors/mentors';
 import classes from '../../css/mentors.module.css';
 
 const MentorsDetails = () => {
