@@ -45,9 +45,8 @@ const ReservationForm = () => {
 
   return (
     <>
-      {/* <div id="toggler" className={style.sidebarContainer}> */}
+      
         <Sidebar />
-      {/* </div> */}
       <section className={style.reservationContainer}>
         <div className={style.mainBody}>
           <div className={style.heading}>
