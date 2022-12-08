@@ -58,15 +58,6 @@ const ReservationForm = () => {
             {mentor?.bio}
             </h1>
           </div>
-          {/* <div className={style.success}>
-            {myData.status === 200 && isSubmit ? (
-              <div className={style.errors}>Reservation successful!</div>
-            ) : (
-              <p className={style.errorMsg}>{handleFailure()}</p>
-            )}
-          </div> */}
-          {/* <div className={style.formBody}>
-            <form className={style.form}> */}
             <div className={style.formBody}>
             <form className={style.formBlock}>
               <select

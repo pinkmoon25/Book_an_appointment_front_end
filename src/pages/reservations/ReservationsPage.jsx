@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
-import { deleteAppointment } from '../../Redux/addReservation/addReservation';
+import { Link } from 'react-router-dom';
+import { BsFillCaretLeftFill } from 'react-icons/bs';
+import classes from '../../css/reservepage.module.css';
+
 
 const ReservationsPage = () => {
   const current_user = JSON.parse(useSelector((state) => state.loginStatus.user, shallowEqual));
@@ -29,12 +32,11 @@ const ReservationsPage = () => {
 
   return (
     <div >
-        <section className="relative flex flex-col w-full h-screen py-12">
-      <h2 className="ml-10 text-2xl font-bold">Reservations</h2>
+      <section className="relative flex flex-col w-full h-screen py-12">
+      <h2 className="d-flex flex-column align-items-center mb-2">Reservations</h2>
      <ul className="grid 2xl:grid-cols-4 xl:grid-cols-3 justify-center md:grid-cols-2 gap-10 p-2">
       {reservations?.map((r) => (
-       
-          <li className="bg-slate-100 pb-2 h-90 rounded justify-center overflow-hidden shadow-lg 
+        <li className="bg-slate-100 pb-2 h-90 rounded justify-center overflow-hidden shadow-lg 
           transform transition duration-500 hover:scale-105" key={r.id}>
               <div className="flex justify-center">
                 <img className="w-full h-50 object-cover" src={r.mentor.image} alt="Sunset in the mountains" />
@@ -53,8 +55,13 @@ const ReservationsPage = () => {
                 </button>
               </div>
             </li>
-            ))}
+            ))} 
         </ul>
+        <Link to="/mentors">
+          <div className={`${classes.back} d-flex justify-content-center align-items-center`}>
+            <BsFillCaretLeftFill />
+        </div>
+        </Link>
       </section>
     </div>
   );
