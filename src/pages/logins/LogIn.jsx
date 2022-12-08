@@ -15,7 +15,6 @@ const LogIn = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  // const [isAuthenticated, setIsAuthenticated] = useState(false)
 
 
   useEffect(() => {
@@ -47,14 +46,11 @@ const LogIn = () => {
 .then(response => response.json())
 .then(data => {
   dispatch({ type: 'LOGIN_STATUS', payload: data });
-    // setUser({... JSON.parse(data.user)})
-    // sessionStorage.setItem(data);
     if(data.status === 401){
       setErrorMessage('Username/Password Incorrect')
     } else if(data.logged_in){
         setSuccessMessage('Logged in succcessfully')
         console.log(data)
-        // setIsAuthenticated(true)
         navigate('/mentors')
       }
     })
