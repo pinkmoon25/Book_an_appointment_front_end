@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LogIn from './pages/logins/LogIn';
+import SignUp from './pages/registration/Register';
+import Home from './pages/Home';
+import MentorsPage from './pages/mentors/MentorsPage';
+import MentorsDetails from './pages/mentors/MentorsDetails';
+import ReservationForm from './pages/reservations/ReservationForm';
+import ReservationsPage from './pages/reservations/ReservationsPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <div>
+
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/register" element={<SignUp />} />
+        <Route path="/mentors" element={<MentorsPage />} />
+        <Route path="/mentors/:id" element={<MentorsDetails />} />
+        <Route path="/reservation/:id" element={<ReservationForm />} />
+        <Route path="/reservations" element={<ReservationsPage />} />
+
+      </Routes>
+    </BrowserRouter>
+  </div>
+);
 
 export default App;
