@@ -13,7 +13,6 @@ const ReservationsPage = () => {
     const fetchReservations = async()=>{
     const res = await fetch(`http://localhost:3000/users/${current_user.id}`)
     const result = await res.json()
-    console.log(result)
     setReservations(result)
     }
     fetchReservations()
