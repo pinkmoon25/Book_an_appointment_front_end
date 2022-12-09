@@ -72,9 +72,6 @@ const SignUp = () => {
         <div className={classes.heading}>
           <h2>Sign Up</h2>
         </div>
-        <div className="errors">
-         <span className={classes.errorMsg}>{signUpButtonContent()}</span>
-        </div>
         <div className={classes.formContainer}>
           <form onSubmit={(e) => handleSubmit(e)} className={classes.form}>
            <div className={classes.formGroup}>

@@ -10,7 +10,7 @@ export const getMentors = () => async (dispatch) => {
     const result = await response.json();
     dispatch({ type: FETCH_MENTORS, payload: result });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
