@@ -10,6 +10,8 @@ import { logout } from '../../Redux/logout/logout';
 
 const Sidebar = () => {
   const userData = useSelector((state) => state.loginStatus, shallowEqual);
+  const user = userData.logged_in ? JSON.parse(userData.user) : null 
+
   const toggleMenu = () => {
     const navMenu = document.querySelector('nav');
     navMenu.classList.toggle(styles.toggle);
@@ -33,6 +35,11 @@ const Sidebar = () => {
       id: 2,
       route: userData.logged_in ? '/reservations' : '/login',
       children: 'Reservations',
+    },
+    {
+      id: 3,
+      route: user?.admin ? '/admin' : '',
+      children: user?.admin ? 'Admin' : '',
     },
   ];
 

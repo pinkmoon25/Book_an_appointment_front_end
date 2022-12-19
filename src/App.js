@@ -7,13 +7,14 @@ import MentorsPage from './pages/mentors/MentorsPage';
 import MentorsDetails from './pages/mentors/MentorsDetails';
 import ReservationForm from './pages/reservations/ReservationForm';
 import ReservationsPage from './pages/reservations/ReservationsPage';
+import Dashboard from './pages/admin/dashboard';
 
 const App = () => (
-  <div>
-
+  <>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<Dashboard />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<SignUp />} />
         <Route path="/mentors" element={<MentorsPage />} />
@@ -23,7 +24,7 @@ const App = () => (
 
       </Routes>
     </BrowserRouter>
-  </div>
+  </>
 );
 
 export default App;

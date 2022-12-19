@@ -36,6 +36,7 @@ const SignUp = () => {
   const handleSubmit = (e) => {
       e.preventDefault()
       fetch('http://localhost:3000//registrations', {
+        credentials: 'include',
     method: "POST",
     headers: {
         "Accept": "application/json",
